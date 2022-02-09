@@ -1,0 +1,60 @@
+@import "normalize.css";
+@import "variables.css";
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.figures {
+
+}
+
+.figures__google {
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--color);
+}
+
+.figures__google {
+
+    animation-iteration-count: 1;
+    animation-duration: 5s;
+    animation-timing-function: cubic-bezier(0, 0, 1, 1);
+    animation-fill-mode: forwards;
+}
+
+.figures__mozilla {
+    width: 0;
+    height: 0;
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-bottom: var(--size) solid var(--color);
+    transition: opacity 2s;
+}
+
+
+.container:hover .figures__mozilla {
+    opacity: 0;
+}
+
+
+@keyframes google-animation {
+    0% {
+        transform: translateX(0) rotate(0) translateY(0);
+    }
+    25% {
+        transform: translateX(0) rotate(22deg) translateY(0);
+    }
+    50% {
+        transform: translateX(0) rotate(45deg) translateY(0);
+    }
+    75% {
+        transform: translateX(calc((-1)*(100% + (70% * 1.74))/2)) rotate(45deg) translateY(0);
+    }
+    100% {
+        transform: translateX(calc((-1)*(100% + (70% * 1.74)))) rotate(45deg) translateY(0);
+    }
+}
