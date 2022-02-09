@@ -15,8 +15,9 @@
     height: var(--size);
     background-color: var(--color);
     transition: transform 1s cubic-bezier(0, 0, 1,1);
-    animation: 5s cubic-bezier(0, 0, 1, 1) infinite alternate paused google-animation ;
+    animation: 5s cubic-bezier(0, 0, 1, 1) infinite alternate paused google-animation;
 }
+
 
 .no-support {
     font-family: 'Roboto', sans-serif;

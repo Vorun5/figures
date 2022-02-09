@@ -1,3 +1,4 @@
+
 function BrowserName() {
     const user = navigator.userAgent
     if (user.indexOf("Firefox") > -1) {
@@ -24,7 +25,7 @@ function figureCreation(browser, container, size, styleRoot) {
 
 
             styleRoot.style.setProperty('--size', size * 50 + 'px')
-            styleRoot.style.setProperty('--color', '#795bc7')
+            styleRoot.style.setProperty('--color', '#85c473')
             element.classList.add('figure__mozilla')
             element.style.opacity = "1"
             break;
@@ -34,7 +35,7 @@ function figureCreation(browser, container, size, styleRoot) {
 
 
             styleRoot.style.setProperty('--size', size * 30 + 'px')
-            styleRoot.style.setProperty('--color', '#e74bab')
+            styleRoot.style.setProperty('--color', '#9b6a51')
             element.classList.add('figure__edge')
             break;
         case "google":
@@ -43,7 +44,7 @@ function figureCreation(browser, container, size, styleRoot) {
 
 
             styleRoot.style.setProperty('--size', size * 70 + 'px')
-            styleRoot.style.setProperty('--color', '#0b3436')
+            styleRoot.style.setProperty('--color', '#18a9e1')
             element.classList.add('figure__google')
             break;
         default:
@@ -74,7 +75,7 @@ function mozillaAnimation(el) {
     }
 }
 
-function edgeAnimation(el) {
+function edgeAnimation(el, size) {
     const defaultSize = size * 30 + 'px'
     const clickSize = size * 70 + 'px'
     if (el.style.getPropertyValue('--size') === defaultSize) {
