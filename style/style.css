@@ -1,15 +1,13 @@
 @import "normalize.css";
 @import "variables.css";
-
+@import "fonts.css";
 .container {
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.figure {
+    overflow: hidden;
 }
 
 .figure__google {
@@ -17,14 +15,13 @@
     height: var(--size);
     background-color: var(--color);
     transition: transform 1s cubic-bezier(0, 0, 1,1);
-    /*animation:  5s cubic-bezier(0, 0, 1, 1) 1s 1 reverse none running google-animation;*/
-    /*animation-name: google-animation;*/
-    /*animation-direction: alternate;*/
-    /*animation-duration: 5s;*/
-    /*animation-timing-function: cubic-bezier(0, 0, 1, 1);*/
-    /*animation-fill-mode: forwards;*/
-    /*animation-iteration-count: infinite;*/
-    /*animation-play-state: paused;*/
+    animation: 5s cubic-bezier(0, 0, 1, 1) infinite alternate paused google-animation ;
+}
+
+.no-support {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #8272fc;
 }
 
 .figure__mozilla {

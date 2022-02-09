@@ -1,24 +1,94 @@
-//The order matters here, and this may report false positives for unlisted browsers.
 function BrowserName() {
     const user = navigator.userAgent
     if (user.indexOf("Firefox") > -1) {
-        return "Mozilla Firefox";
-        //"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
-    } else if (user.indexOf("Opera") > -1) {
-        return "Opera";
+        return "mozilla";
+    } else if (user.indexOf("Opera") > -1 || ((!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0)) {
+        return "opera";
     } else if (user.indexOf("Trident") > -1) {
-        return "Microsoft Internet Explorer";
-        //"Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; Zoom 3.6.0; wbx 1.0.0; rv:11.0) like Gecko"
+        return "ie";
     } else if (user.indexOf("Edge") > -1) {
-        return "Microsoft Edge";
-        //"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299"
+        return "edge";
     } else if (user.indexOf("Chrome") > -1) {
-        return "Google Chrome or Chromium";
-        //"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36"
-    } else if (user.indexOf("Safari") > -1) {
-        return "Apple Safari";
-        //"Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1 980x1306"
+        return "google";
     } else {
         return "unknown";
+    }
+}
+
+function figureCreation(browser, container, size, styleRoot) {
+    let element
+    switch (browser) {
+        case "mozilla":
+            element = document.createElement('div')
+            container.appendChild(element)
+
+
+            styleRoot.style.setProperty('--size', size * 50 + 'px')
+            styleRoot.style.setProperty('--color', '#795bc7')
+            element.classList.add('figure__mozilla')
+            element.style.opacity = "1"
+            break;
+        case "edge":
+            element = document.createElement('div')
+            container.appendChild(element)
+
+
+            styleRoot.style.setProperty('--size', size * 30 + 'px')
+            styleRoot.style.setProperty('--color', '#e74bab')
+            element.classList.add('figure__edge')
+            break;
+        case "google":
+            element = document.createElement('div')
+            container.appendChild(element)
+
+
+            styleRoot.style.setProperty('--size', size * 70 + 'px')
+            styleRoot.style.setProperty('--color', '#0b3436')
+            element.classList.add('figure__google')
+            break;
+        default:
+            element = document.createElement('div')
+            container.appendChild(element)
+
+
+            element.classList.add("no-support")
+            element.innerText = "Данный тип браузера не поддерживается"
+            break;
+    }
+    return element
+}
+
+function googleAnimation(el) {
+    el.style.animationPlayState = 'running'
+    setTimeout(() => {
+        el.style.animationPlayState = 'paused'
+    }, 5000)
+}
+
+
+function mozillaAnimation(el) {
+    if (el.style.opacity === "1") {
+        el.style.opacity = "0"
+    } else {
+        el.style.opacity = "1"
+    }
+}
+
+function edgeAnimation(el) {
+    const defaultSize = size * 30 + 'px'
+    const clickSize = size * 70 + 'px'
+    if (el.style.getPropertyValue('--size') === defaultSize) {
+
+        el.style.setProperty('--size', clickSize)
+    } else {
+        el.style.setProperty('--size', defaultSize)
+    }
+}
+
+function SmallerSide(el) {
+    if (el.clientHeight >= el.clientWidth) {
+        return el.clientWidth / 100
+    } else {
+        return el.clientHeight / 100
     }
 }
