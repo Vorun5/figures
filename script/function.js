@@ -1,4 +1,8 @@
+/**
+ * @return {string}
+ */
 function browserName() {
+    /** @type {string} */
     const user = navigator.userAgent
 
     if (user.indexOf("Firefox") > -1) {
@@ -16,9 +20,16 @@ function browserName() {
     }
 }
 
+/**
+ * @param {string} browser
+ * @param {HTMLDivElement} container
+ * @param {number} size
+ * @param {HTMLElement} styleRoot
+ * @return {Element}
+ */
 function figureCreation(browser, container, size, styleRoot) {
+    /** @type {HTMLDivElement} */
     let element
-
     switch (browser) {
         case "mozilla":
             element = document.createElement('div')
@@ -54,6 +65,10 @@ function figureCreation(browser, container, size, styleRoot) {
     return element
 }
 
+/**
+ * @param {HTMLDivElement} el
+ * @return {number}
+ */
 function smallerSide(el) {
     if (el.clientHeight >= el.clientWidth) {
         return el.clientWidth / 100

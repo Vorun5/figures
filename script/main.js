@@ -1,16 +1,21 @@
 import {googleAnimation, mozillaAnimation, edgeAnimation} from './animation.js'
 import {smallerSide, figureCreation, browserName} from './function.js'
 
-
+/** @type {HTMLDivElement} */
 const container = document.querySelector('#container')
+/** @type {number} */
 let size = smallerSide(container)
+/** @type {string} */
 const browser = browserName()
+/** @type {HTMLElement} */
 const root = document.querySelector(":root")
+/** @type {Element} */
 let element = figureCreation(browser, container, size, root)
 
 if (!element.classList.contains('no-support')) {
 
     window.addEventListener('resize', () => {
+        /** @type {number} */
         let sizeNow = smallerSide(container)
 
         switch (browser) {
