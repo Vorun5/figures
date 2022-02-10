@@ -20,9 +20,12 @@ function edgeAnimation(el, size, click) {
     const defaultSize = size * 30 + 'px'
     const clickSize = size * 70 + 'px'
 
-    if ((el.style.getPropertyValue('--size') === defaultSize) && click) {
-        el.style.setProperty('--size', clickSize)
+    if ((el.style.getPropertyValue('--size') === size * 30 + 'px') && click) {
+        el.style.setProperty('--size', size * 70 + 'px')
     } else {
-        el.style.setProperty('--size', defaultSize)
+        el.style.setProperty('--size', size * 30 + 'px')
     }
 }
+
+
+export {googleAnimation, mozillaAnimation, edgeAnimation}

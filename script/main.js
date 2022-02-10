@@ -1,12 +1,17 @@
+import {googleAnimation, mozillaAnimation, edgeAnimation} from './animation.js'
+import {smallerSide, figureCreation, browserName} from './function.js'
+
+
 const container = document.querySelector('#container')
-let size = SmallerSide(container)
-const browser = BrowserName()
+let size = smallerSide(container)
+const browser = browserName()
 const root = document.querySelector(":root")
 let element = figureCreation(browser, container, size, root)
 
 if (!element.classList.contains('no-support')) {
+
     window.addEventListener('resize', () => {
-        let sizeNow = SmallerSide(container)
+        let sizeNow = smallerSide(container)
 
         switch (browser) {
             case "edge": {
@@ -40,7 +45,7 @@ if (!element.classList.contains('no-support')) {
                 break
             case "edge":
                 container.addEventListener('click', (event) => {
-                    edgeAnimation(element, size, event.target === element)
+                    edgeAnimation(root, size, event.target === element)
                 }, false)
                 break
             case "mozilla":
@@ -51,5 +56,6 @@ if (!element.classList.contains('no-support')) {
             default:
                 break
         }
-    })
+    }, false)
+
 }

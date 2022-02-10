@@ -1,4 +1,4 @@
-function BrowserName() {
+function browserName() {
     const user = navigator.userAgent
 
     if (user.indexOf("Firefox") > -1) {
@@ -54,10 +54,12 @@ function figureCreation(browser, container, size, styleRoot) {
     return element
 }
 
-function SmallerSide(el) {
+function smallerSide(el) {
     if (el.clientHeight >= el.clientWidth) {
         return el.clientWidth / 100
     } else {
         return el.clientHeight / 100
     }
 }
+
+export {browserName, figureCreation, smallerSide}
