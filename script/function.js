@@ -24,7 +24,7 @@ function browserName() {
  * @param {string} browser
  * @param {HTMLDivElement} container
  * @param {number} size
- * @param {HTMLElement} styleRoot
+ * @param {HTMLStyleElement} styleRoot
  * @return {Element}
  */
 function figureCreation(browser, container, size, styleRoot) {

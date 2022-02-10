@@ -7,7 +7,7 @@ const container = document.querySelector('#container')
 let size = smallerSide(container)
 /** @type {string} */
 const browser = browserName()
-/** @type {HTMLElement} */
+/** @type  {HTMLStyleElement} */
 const root = document.querySelector(":root")
 /** @type {Element} */
 let element = figureCreation(browser, container, size, root)
