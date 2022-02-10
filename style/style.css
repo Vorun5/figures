@@ -16,7 +16,7 @@
 .figure__google {
     width: var(--size);
     height: var(--size);
-    background-color: var(--color);
+    background-color: #18a9e1;
     transition: transform 5s cubic-bezier(0, 0, 1, 1);
 }
 
@@ -33,7 +33,7 @@
     height: 0;
     border-left: calc(var(--size) / 2) solid transparent;
     border-right: calc(var(--size) / 2) solid transparent;
-    border-bottom: var(--size) solid var(--color);
+    border-bottom: var(--size) solid #85c473;
     transition: opacity 2s cubic-bezier(0, 0, 1, 1);
 }
 
@@ -48,7 +48,7 @@
 .figure__edge {
     width: var(--size);
     height: var(--size);
-    background-color: var(--color);
+    background-color: #9b6a51;
     border-radius: 50%;
 }
 
