@@ -24,7 +24,7 @@ function browserName() {
  * @param {string} browser
  * @param {HTMLDivElement} container
  * @param {number} size
- * @param {HTMLStyleElement} styleRoot
+ * @param {HTMLElement} styleRoot
  * @return {Element}
  */
 function figureCreation(browser, container, size, styleRoot) {
@@ -37,7 +37,7 @@ function figureCreation(browser, container, size, styleRoot) {
             styleRoot.style.setProperty('--size', size * 50 + 'px')
             styleRoot.style.setProperty('--color', '#85c473')
             element.classList.add('figure__mozilla')
-            element.style.opacity = "1"
+            element.classList.add("figure__mozilla_default")
             break;
         case "edge":
             element = document.createElement('div')

@@ -24,6 +24,10 @@
     transform: translateX(0) rotate(0);
 }
 
+.figure__google_click {
+    transform: translateX(calc((-1)*(100% + (var(--size))*1.3))) rotate(45deg);
+}
+
 .figure__mozilla {
     width: 0;
     height: 0;
@@ -31,6 +35,14 @@
     border-right: calc(var(--size) / 2) solid transparent;
     border-bottom: var(--size) solid var(--color);
     transition: opacity 2s cubic-bezier(0, 0, 1, 1);
+}
+
+.figure__mozilla_default {
+    opacity: 1;
+}
+
+.figure__mozilla_click {
+    opacity: 0;
 }
 
 .figure__edge {

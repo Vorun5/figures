@@ -5,10 +5,10 @@
  */
 function googleAnimation(el, size, click) {
     if (el.classList.contains("figure__google_default") && click) {
+        el.classList.remove("figure__google_default")
         el.classList.add("figure__google_click")
-        el.style.transform = "translateX(calc((-1)*(100% + var(--size) * 1.2))) rotate(45deg)"
     } else {
-        el.style.transform = "translateX(0) rotate(0)"
+        el.classList.remove("figure__google_click")
         el.classList.add("figure__google_default")
     }
 }
@@ -18,28 +18,30 @@ function googleAnimation(el, size, click) {
  * @param {boolean} click
  */
 function mozillaAnimation(el, click) {
-    if (el.style.opacity === "1" && click) {
-        el.style.opacity = "0"
+    if (el.classList.contains("figure__mozilla_default") && click) {
+        el.classList.remove("figure__mozilla_default")
+        el.classList.add("figure__mozilla_click")
     } else {
-        el.style.opacity = "1"
+        el.classList.remove("figure__mozilla_click")
+        el.classList.add("figure__mozilla_default")
     }
 }
 
 /**
- * @param {HTMLDivElement} el
+ * @param {HTMLDivElement} root
  * @param {number} size
  * @param {boolean} click
  */
-function edgeAnimation(el, size, click) {
+function edgeAnimation(root, size, click) {
     /** @type {string} */
     const defaultSize = size * 30 + 'px'
     /** @type {string} */
     const clickSize = size * 70 + 'px'
 
-    if ((el.style.getPropertyValue('--size') === defaultSize) && click) {
-        el.style.setProperty('--size', clickSize)
+    if ((root.style.getPropertyValue('--size') === defaultSize) && click) {
+        root.style.setProperty('--size', clickSize)
     } else {
-        el.style.setProperty('--size', defaultSize)
+        root.style.setProperty('--size', defaultSize)
     }
 }
 
