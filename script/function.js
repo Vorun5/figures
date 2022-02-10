@@ -1,6 +1,6 @@
-
 function BrowserName() {
     const user = navigator.userAgent
+
     if (user.indexOf("Firefox") > -1) {
         return "mozilla";
     } else if (user.indexOf("Opera") > -1 || ((!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0)) {
@@ -18,12 +18,11 @@ function BrowserName() {
 
 function figureCreation(browser, container, size, styleRoot) {
     let element
+
     switch (browser) {
         case "mozilla":
             element = document.createElement('div')
             container.appendChild(element)
-
-
             styleRoot.style.setProperty('--size', size * 50 + 'px')
             styleRoot.style.setProperty('--color', '#85c473')
             element.classList.add('figure__mozilla')
@@ -32,8 +31,6 @@ function figureCreation(browser, container, size, styleRoot) {
         case "edge":
             element = document.createElement('div')
             container.appendChild(element)
-
-
             styleRoot.style.setProperty('--size', size * 30 + 'px')
             styleRoot.style.setProperty('--color', '#9b6a51')
             element.classList.add('figure__edge')
@@ -41,49 +38,20 @@ function figureCreation(browser, container, size, styleRoot) {
         case "google":
             element = document.createElement('div')
             container.appendChild(element)
-
-
             styleRoot.style.setProperty('--size', size * 70 + 'px')
             styleRoot.style.setProperty('--color', '#18a9e1')
             element.classList.add('figure__google')
+            element.classList.add('figure__google_default')
             break;
         default:
             element = document.createElement('div')
             container.appendChild(element)
-
-
             element.classList.add("no-support")
             element.innerText = "Данный тип браузера не поддерживается"
             break;
     }
+
     return element
-}
-
-function googleAnimation(el) {
-    el.style.animationPlayState = 'running'
-    setTimeout(() => {
-        el.style.animationPlayState = 'paused'
-    }, 5000)
-}
-
-
-function mozillaAnimation(el) {
-    if (el.style.opacity === "1") {
-        el.style.opacity = "0"
-    } else {
-        el.style.opacity = "1"
-    }
-}
-
-function edgeAnimation(el, size) {
-    const defaultSize = size * 30 + 'px'
-    const clickSize = size * 70 + 'px'
-    if (el.style.getPropertyValue('--size') === defaultSize) {
-
-        el.style.setProperty('--size', clickSize)
-    } else {
-        el.style.setProperty('--size', defaultSize)
-    }
 }
 
 function SmallerSide(el) {
