@@ -26,7 +26,7 @@ function mozillaAnimation(el, click) {
 }
 
 /**
- * @param {HTMLElement} el
+ * @param {HTMLDivElement} el
  * @param {number} size
  * @param {boolean} click
  */
